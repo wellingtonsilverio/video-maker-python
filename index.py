@@ -2,7 +2,7 @@ def start():
     content = {}
 
     def askAndReturnSearchTerm():
-        return 'oi'
+        return input('Type your search term : ') 
     
     content["searchTerm"] = askAndReturnSearchTerm()
 
