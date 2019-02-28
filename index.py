@@ -1,10 +1,21 @@
+import inquirer
+
 def start():
     content = {}
-
-    def askAndReturnSearchTerm():
-        return input('Type your search term : ') 
+    choices = ['Who is', 'What is', 'The history of']
     
-    content["searchTerm"] = askAndReturnSearchTerm()
+    def askAndReturnSearchTermAndPrefix():
+        questions = [
+            inquirer.Text('searchTerm', message="Type your search term"),
+            inquirer.List('prefix',
+                  message="Choose one option",
+                  choices=choices,
+              ),
+            ]
+        return inquirer.prompt(questions)
+    
+    content = askAndReturnSearchTermAndPrefix()
+
 
     print(content)
 
